@@ -22,13 +22,4 @@ class PhotoCell: UICollectionViewCell {
     }
 
     
-    func insertOrUpdate(weather: WeatherModel) {
-        try! realm.write({
-            let taskList = TaskList()
-            taskList.id = weather.conditionName
-            taskList.name = weather.cityName
-            taskList.temp = weather.temperatureString
-            realm.add(taskList)
-        })
-    }
 }

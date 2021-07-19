@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct WeatherModel {
-    var conditionId: Int = 0
-    var cityName: String = ""
-    var temperature: Double = 0.0
+class WeatherModel: Object {
+    @Persisted var conditionId: Int = 0
+    @Persisted var cityName: String = ""
+    @Persisted var temperature: Double = 0.0
     
     var temperatureString: String {
         return String(format: "%.0f", temperature)
@@ -37,11 +38,10 @@ struct WeatherModel {
             return "cloud"
         }
     }
-    init?(weatherData: WeatherData) {
+    convenience init(weatherData: WeatherData) {
+        self.init()
         conditionId = weatherData.weather[0].id
         cityName = weatherData.name
         temperature = weatherData.main.temp
-    }
-    init() {
     }
 }
