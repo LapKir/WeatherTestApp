@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class DataBaseManager {
+final class DataBaseManager {
     private static var sharedManager: DataBaseManager = {
         let dataBaseManager = DataBaseManager()
         

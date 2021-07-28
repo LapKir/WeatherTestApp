@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var items: [WeatherModel] = []
 
@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +53,6 @@ extension ViewController: UICollisionBehaviorDelegate, UICollectionViewDataSourc
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? PhotoCell
-        
         
         var weather = WeatherModel()
         weather = items[indexPath.row]

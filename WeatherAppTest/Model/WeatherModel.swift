@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class WeatherModel: Object {
+final class WeatherModel: Object {
     @Persisted var conditionId: Int = 0
     @Persisted var cityName: String = ""
     @Persisted var temperature: Double = 0.0
